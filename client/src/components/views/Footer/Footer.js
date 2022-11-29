@@ -1,14 +1,14 @@
 import React from 'react'
-import Icon from '@ant-design/icons';
+
 
 function Footer() {
   return (
     <div style={{
-      height: '80px', display: 'flex',
+      height: '50px', display: 'flex',
       flexDirection: 'column', alignItems: 'center',
-      justifyContent: 'center', fontSize:'1rem'
+      justifyContent: 'center', fontSize:'12px'
     }}>
-       <p> Ant Design ©2018 Created by Ant UED  <Icon type="smile" /></p>
+       <p> Copyright ⓒ2022 Created by 전정민, 정운관. </p>
        
     </div>
   )
