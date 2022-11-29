@@ -11,6 +11,8 @@ import LoginPage from './components/views/LoginPage/LoginPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import Auth from './hoc/auth'
 
+import Footer from './components/views/Footer/Footer';
+
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
           <Route path="/register" element={<AuthenticRegisterPage />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

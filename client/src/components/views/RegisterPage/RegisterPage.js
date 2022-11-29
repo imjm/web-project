@@ -47,8 +47,6 @@ function RegisterPage(props) {
       name: Name
     }
 
-    
-
     dispatch(registerUser(body))
     .then(response => {
       if (response.payload.success) {
@@ -59,8 +57,6 @@ function RegisterPage(props) {
     })
 
   }
-
-
 
   return (
     <div style={{
