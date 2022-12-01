@@ -21,19 +21,19 @@ function RightMenu(props) {
 
   if (user.userData && !user.userData.isAuth) {
     return (
-      <Menu mode={props.mode}>
-        <Menu.Item key="mail">
-          <a href="/login">로그인</a>
+      <Menu mode={props.mode} >
+        <Menu.Item key="mail" >
+          <a href="/login" style={{ fontWeight: 'bold' }}>로그인</a>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/register">회원가입</a>
+          <a href="/register" style={{ fontWeight: 'bold' }}>회원가입</a>
         </Menu.Item>
       </Menu>
     )
   } else {
     return (
       <Menu mode={props.mode}>
-        <Menu.Item key="chat">채팅</Menu.Item>
+        <Menu.Item key="chat" style={{ fontWeight: 'bold' }}>채팅</Menu.Item>
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>로그아웃</a>
         </Menu.Item>
