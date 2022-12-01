@@ -1,7 +1,39 @@
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { registerUser} from '../../../_actions/user_action'  
+import moment from "moment";
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
+import {
+  Form,
+  Input,
+  Button,
+} from 'antd';
+
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 8 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 16 },
+  },
+};
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 16,
+      offset: 8,
+    },
+  },
+};
 
 
 function RegisterPage(props) {
