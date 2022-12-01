@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { loginUser} from '../../../_actions/user_action'
-import { Form, Input, Button, Checkbox, Typography } from 'antd';
+import { Form, Input, Button, Typography } from 'antd';
 import {LockOutlined, UserOutlined} from '@ant-design/icons';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -14,23 +14,20 @@ function LoginPage(props) {
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  const rememberMeChecked = localStorage.getItem("rememberMe") ? true : false;
+
 
   const [formErrorMessage, setFormErrorMessage] = useState('')
-  const [rememberMe, setRememberMe] = useState(rememberMeChecked)
+  
 
-  const handleRememberMe = () => {
-    setRememberMe(!rememberMe)
-  };
 
-  const initialEmail = localStorage.getItem("rememberMe") ? localStorage.getItem("rememberMe") : '';
+ 
   
 
  
   return (
     <Formik
     initialValues={{
-      email: initialEmail,
+      email: '',
       password: '',
     }}
     validationSchema={Yup.object().shape({
@@ -52,18 +49,14 @@ function LoginPage(props) {
           .then(response => {
             if (response.payload.loginSuccess) {
               window.localStorage.setItem('userId', response.payload.userId);
-              if (rememberMe === true) {
-                window.localStorage.setItem('rememberMe', values.id);
-              } else {
-                localStorage.removeItem('rememberMe');
-              }
+              
               navigate("/");
             } else {
-              setFormErrorMessage('Check out your Account or Password again')
+              setFormErrorMessage('이메일 혹은 비밀번호를 확인하세요')
             }
           })
           .catch(err => {
-            setFormErrorMessage('Check out your Account or Password again')
+            setFormErrorMessage('이메일 혹은 비밀번호를 확인하세요')
             setTimeout(() => {
               setFormErrorMessage("")
             }, 3000);
@@ -131,7 +124,7 @@ function LoginPage(props) {
             )}
 
             <Form.Item>
-              <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
+            
               <div>
                 <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
                   로그인
