@@ -13,6 +13,10 @@ import Auth from './hoc/auth'
 import Footer from './components/views/Footer/Footer';
 import NavBar from './components/views/NavBar/NavBar';
 
+import PostList from './components/views/Post/PostList';
+import PostDetail from './components/views/Post/PostDetail'
+import New from './components/views/Post/New';
+import Edit from './components/views/Post/Edit'
 
 
 function App() {
@@ -29,6 +33,10 @@ function App() {
           <Route path="/" element={<AuthenticLandingPage />} />
           <Route path="/login" element={<AuthenticLoginPage />} />
           <Route path="/register" element={<AuthenticRegisterPage />} />
+          <Route path="/posts" element={<PostList />}/>
+          <Route path="/posts/:id" element={<PostDetail />} />
+          <Route path="/posts/:id/edit" element={<Edit />} />
+          <Route path="/posts/new" element={<New />} />
         </Routes>
       </div>
       <Footer />
