@@ -39,7 +39,7 @@ const Edit = () => {
     };
 
     // fetch에 옵션 지정하여 서버에 요청을 전달한다.
-    await fetch(`http://localhost:5500/posts/${params.id}`, {
+    await fetch(`http://localhost:5000/posts/${params.id}`, {
       method: "PUT",
       body: JSON.stringify(editedPost),
       headers: {
