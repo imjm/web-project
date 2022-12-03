@@ -14,6 +14,9 @@ app.use(cookieParser());
 const mongoose = require('mongoose')
 mongoose.connect(config.mongoURI).then(()=> console.log('MongoDB Connected...'))
   .catch(err => console.log(err))
+
+
+  
 app.use(cors());
 
 app.use('/api/users', require('./routes/users'));
