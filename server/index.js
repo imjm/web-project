@@ -19,6 +19,7 @@ mongoose.connect(config.mongoURI).then(()=> console.log('MongoDB Connected...'))
   
 app.use(cors());
 
+app.use('/api/dialogflow', require('./routes/dialogflow'));
 app.use('/api/users', require('./routes/users'));
 app.use("/posts", require("./routes/posts"));
 
