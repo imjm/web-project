@@ -18,6 +18,8 @@ import PostDetail from './components/views/Post/PostDetail'
 import New from './components/views/Post/New';
 import Edit from './components/views/Post/Edit'
 
+import ChatbotPage from "./Chatbot/ChatbotPage";
+
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
       <NavBar />
       <div style={{ paddingTop: '113px', minHeight: 'calc(100vh - 80px)' }}> 
         <Routes>
+          <Route path="/chat" element={<ChatbotPage />}/>
           <Route path="/" element={<AuthenticLandingPage />} />
           <Route path="/login" element={<AuthenticLoginPage />} />
           <Route path="/register" element={<AuthenticRegisterPage />} />

@@ -24,16 +24,15 @@ router.post('/textQuery', async (req, res) => {
     const request = {
         session: sessionPath,
         queryInput: {
-            text: {
-                // The query to send to the dialogflow agent
+            text: { 
                 text: req.body.text,
-                // The language used by the client (en-US)
+                // 사용자가 사용할 언어
                 languageCode: languageCode,
             },
         },
     };
 
-    // Send request and log result
+    // request를 보내고 log를 출력한다.
     const responses = await sessionClient.detectIntent(request);
     console.log('Detected intent');
     const result = responses[0].queryResult;
@@ -46,21 +45,21 @@ router.post('/textQuery', async (req, res) => {
 
 // 이벤트 쿼리 라우트
 router.post('/eventQuery', async (req, res) => {
-    //We need to send some information that comes from the client to Dialogflow API 
-    // The text query request.
+    //클라이언트에서 dialogflow api로 보낼 정보가 필요하다.
+    // The text query request
     const request = {
         session: sessionPath,
         queryInput: {
             event: {
                 // The query to send to the dialogflow agent
                 name: req.body.event,
-                // The language used by the client (en-US)
+                // 클라이언트가 쓰는 언어
                 languageCode: languageCode,
             },
         },
     };
 
-    // Send request and log result
+    //request를 보내고 log 출력
     const responses = await sessionClient.detectIntent(request);
     console.log('Detected intent');
     const result = responses[0].queryResult;

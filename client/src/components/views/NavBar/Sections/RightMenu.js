@@ -33,7 +33,7 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
-        <Menu.Item key="chat" style={{ fontWeight: 'bold' }}>채팅</Menu.Item>
+        <Menu.Item key="chat" style={{ fontWeight: 'bold' }}><a href='/chat'>채팅</a></Menu.Item>
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>로그아웃</a>
         </Menu.Item>

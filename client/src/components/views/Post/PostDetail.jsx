@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 const PostDetail = () => {
   const params = useParams();
   const [post, setPost] = useState({});
+  
 
   async function fetchData() {
     const id = params.id.toString();
@@ -68,7 +69,7 @@ const PostDetail = () => {
         </a>
         <a className="btn btn-primary" href={`/posts/${post._id}/edit`}>Edit</a>
 
-        <button className="btn btn-primary">Delete</button>
+        <button className="btn btn-primary" >Delete</button>
       </div>
     </div>
   );
